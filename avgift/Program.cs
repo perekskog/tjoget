@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-
-namespace Avgift
+﻿namespace Avgift
 {
   class Förbrukning
   {
