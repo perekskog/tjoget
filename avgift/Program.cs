@@ -89,7 +89,7 @@ namespace Avgift
         var el_total = el_justerad * konstant.El_rörlig_kWh;
         if(el_total < 0) el_total = 0;
         Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", hus, förbrukning.El, konstant.El_ingår, el_justerad, el_total));
-        avgift_24q2[hus].El = el_justerad;
+        avgift_24q2[hus].El = el_total;
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
 
