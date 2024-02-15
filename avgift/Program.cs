@@ -43,12 +43,6 @@ namespace Avgift
         {39, new Förbrukning {Vatten=130.657F, El=0, Städdag=0}}
       };
 
-      var avgift_24q2 = new Dictionary<int, Avgift>();
-      foreach(var (hus,förbrukning) in förbrukning_24q2)
-      {
-        avgift_24q2[hus] = new Avgift { Vatten = 0, El = 0, Städdag = förbrukning.Städdag };
-      }
-
       var konstant = new
       {
         Avgift_kvartal = 2400,
@@ -58,8 +52,16 @@ namespace Avgift
         Vatten_förbetalt_år = 3200,
         El_rörlig_kWh = 0.8576F,
         El_ingår = 10,
-        El_moms = 0.25F
+        El_moms = 0.25F,
+        Städdag_hus = 160,
+        Städdag_moms = 0.25F
       };
+
+      var avgift_24q2 = new Dictionary<int, Avgift>();
+      foreach(var (hus,förbrukning) in förbrukning_24q2)
+      {
+        avgift_24q2[hus] = new Avgift { Vatten = 0, El = 0, Städdag = -förbrukning.Städdag*konstant.Städdag_hus };
+      }
 
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|                       Vattenkostnad                            |");
@@ -106,7 +108,7 @@ namespace Avgift
         var vatten = avgift.Vatten;
         var el = avgift.El;
         var städdag = avgift.Städdag;
-        var moms = el * konstant.El_moms + vatten * konstant.Vatten_moms;
+        var moms = vatten * konstant.Vatten_moms + el * konstant.El_moms + städdag * konstant.Städdag_moms;
         var att_betala = konstant.Avgift_kvartal + vatten + el + städdag + moms;
         Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", hus, konstant.Avgift_kvartal, vatten, el, städdag, moms, att_betala));
       }
