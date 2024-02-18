@@ -67,6 +67,21 @@
         avgift[h] = new Avgift { Vatten = 0, El = 0, Städdag = -f.Städdag*konstant.Städdag_hus };
       }
 
+
+      var inbetalning_24q2 = new Dictionary<string, int[]>
+      {
+        { "A34", [31]},
+        { "A35", [1, 5, 13, 15, 21, 27, 29]},
+        { "A36", [9, 35]},
+        { "A37", [3, 7, 33]},
+        { "A38", [19, 39]},
+        { "A39", [11, 23, 37]},
+        { "A41", [25]},
+        { "A42", [17]}
+      };
+
+      var inbetalning = inbetalning_24q2;
+
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|                       Vattenkostnad                            |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
