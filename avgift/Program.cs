@@ -41,7 +41,10 @@
         {39, new Förbrukning {Vatten=130.657F, El=0, Städdag=0}}
       };
 
-      var konstant = new
+      var förbrukning = förbrukning_24q2;
+
+
+      var konstant_24q2 = new
       {
         Avgift_kvartal = 2400,
         Vatten_rörlig_m3 = 16.12F,
@@ -55,10 +58,13 @@
         Städdag_moms = 0.25F
       };
 
-      var avgift_24q2 = new Dictionary<int, Avgift>();
-      foreach(var (hus,förbrukning) in förbrukning_24q2)
+      var konstant = konstant_24q2;
+
+
+      var avgift = new Dictionary<int, Avgift>();
+      foreach(var (h,f) in förbrukning)
       {
-        avgift_24q2[hus] = new Avgift { Vatten = 0, El = 0, Städdag = -förbrukning.Städdag*konstant.Städdag_hus };
+        avgift[h] = new Avgift { Vatten = 0, El = 0, Städdag = -f.Städdag*konstant.Städdag_hus };
       }
 
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
@@ -66,14 +72,14 @@
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|Hus |Förbrukning|Rörlig     |Fast       |Total      |Justerat   |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
-      foreach(var (hus,förbrukning) in förbrukning_24q2)
+      foreach(var (h,f) in förbrukning)
       {
-        var vatten_rörlig = förbrukning.Vatten * konstant.Vatten_rörlig_m3;
+        var vatten_rörlig = f.Vatten * konstant.Vatten_rörlig_m3;
         var vatten_fast = konstant.Vatten_fast_år;
         var vatten_total = vatten_rörlig + vatten_fast;
         var vatten_justerat = vatten_total - konstant.Vatten_förbetalt_år;
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|", hus, förbrukning.Vatten, vatten_rörlig, vatten_fast, vatten_total, vatten_justerat*(1+konstant.Vatten_moms)));
-        avgift_24q2[hus].Vatten = vatten_justerat;
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|", h, f.Vatten, vatten_rörlig, vatten_fast, vatten_total, vatten_justerat*(1+konstant.Vatten_moms)));
+        avgift[h].Vatten = vatten_justerat;
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
 
@@ -84,13 +90,13 @@
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|Hus |Förbrukning|Ingår      |Justerad   |Total      |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
-      foreach(var (hus,förbrukning) in förbrukning_24q2)
+      foreach(var (h,f) in förbrukning)
       {
-        var el_justerad = förbrukning.El - konstant.El_ingår;
+        var el_justerad = f.El - konstant.El_ingår;
         var el_total = el_justerad * konstant.El_rörlig_kWh;
         if(el_total < 0) el_total = 0;
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", hus, förbrukning.El, konstant.El_ingår, el_justerad, el_total*(1+konstant.El_moms)));
-        avgift_24q2[hus].El = el_total;
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", h, f.El, konstant.El_ingår, el_justerad, el_total*(1+konstant.El_moms)));
+        avgift[h].El = el_total;
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
 
@@ -101,17 +107,18 @@
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|Hus |Förbetalt  |Vatten     |El         |Städdag    |Moms       |Att betala |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
-      foreach(var (hus,avgift) in avgift_24q2)
+      foreach(var (h,a) in avgift)
       {
-        var vatten = avgift.Vatten;
-        var el = avgift.El;
-        var städdag = avgift.Städdag;
+        var vatten = a.Vatten;
+        var el = a.El;
+        var städdag = a.Städdag;
         var moms = vatten * konstant.Vatten_moms + el * konstant.El_moms + städdag * konstant.Städdag_moms;
         var att_betala = konstant.Avgift_kvartal + vatten + el + städdag + moms;
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", hus, konstant.Avgift_kvartal, vatten, el, städdag, moms, att_betala));
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", h, konstant.Avgift_kvartal, vatten, el, städdag, moms, att_betala));
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
 
+      var avgift_24q2 = avgift;
     }
   }
 }
