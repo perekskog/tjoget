@@ -130,7 +130,7 @@
         Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|", h, städdag));
         avgift[h].Städdag = städdag;
       }
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
+      Console.WriteLine("+----+-----------+");
 
       Console.WriteLine();
 
