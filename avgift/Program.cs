@@ -137,7 +137,7 @@
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|                             Att betala                                     |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
-      Console.WriteLine("|Hus |Förbetalt  |X Vatten   |El         |Städdag    |Moms       |Att betala |");
+      Console.WriteLine("|Hus |Avg.+fond  |X Vatten   |El         |Städdag    |Moms       |Att betala |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       foreach(var (h,a) in avgift)
       {
