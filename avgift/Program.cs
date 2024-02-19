@@ -140,9 +140,9 @@
       Console.WriteLine();
 
       Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
-      Console.WriteLine("|                                         Bokföring                                           |");
+      Console.WriteLine("|                                         Bokföring                                             |");
       Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
-      Console.WriteLine("|Ver.|Hus |Avgift     |Fondering  |X Vatten   |El         |Städdag    |Moms       |Postgiro   |");
+      Console.WriteLine("|Ver.|Hus |Avgift     |Fondering  |X Vatten   |El         |Städdag    |Moms       |Postgiro     |");
       Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
 
       foreach (var (v, huslista) in inbetalning)
@@ -154,7 +154,7 @@
         var ver_städdag = 0F;
         var ver_moms = 0F;
         Console.WriteLine();
-        Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------|");
+        Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+");
         foreach (var h in huslista)
         {
           var avgift_kvartal = konstant.Avgift_kvartal;
