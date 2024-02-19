@@ -22,7 +22,7 @@
         {1, new Förbrukning {Vatten=53.269, El=0, Städdag=0 }},
         {3, new Förbrukning {Vatten=232.767, El=1, Städdag=0 }},
         {5, new Förbrukning {Vatten=101.623, El=0, Städdag=0 }},
-        {7, new Förbrukning {Vatten=127.427, El=229, Städdag=0}},
+        {7, new Förbrukning {Vatten=127.427, El=229, Städdag=1}},
         {9, new Förbrukning {Vatten=197.35, El=7, Städdag=0}},
         {11, new Förbrukning {Vatten=107.06, El=2, Städdag=0}},
         {13, new Förbrukning {Vatten=107.084, El=1, Städdag=0}},
@@ -66,7 +66,7 @@
       var avgift = new Dictionary<int, Avgift>();
       foreach(var (h,f) in förbrukning)
       {
-        avgift[h] = new Avgift { Vatten = 0, El = 0, Städdag = -f.Städdag*konstant.Städdag_hus };
+        avgift[h] = new Avgift { Vatten = 0, El = 0, Städdag = 0 };
       }
 
 
@@ -114,6 +114,21 @@
         var el_total = el_justerad * konstant.El_rörlig_kWh;
         Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", h, f.El, konstant.El_ingår, el_justerad, el_total));
         avgift[h].El = el_total;
+      }
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
+
+      Console.WriteLine();
+
+      Console.WriteLine("+----+-----------+");
+      Console.WriteLine("|      Städdag   |");
+      Console.WriteLine("+----+-----------+");
+      Console.WriteLine("|Hus |Städdag    |");
+      Console.WriteLine("+----+-----------+");
+      foreach(var (h,f) in förbrukning)
+      {
+        var städdag = f.Städdag * konstant.Städdag_hus;
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|", h, städdag));
+        avgift[h].Städdag = städdag;
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
 
