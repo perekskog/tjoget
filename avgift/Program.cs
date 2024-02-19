@@ -20,9 +20,9 @@
       var förbrukning_24q2 = new Dictionary<int, Förbrukning>()
       {
         {1, new Förbrukning {Vatten=53.269, El=0, Städdag=0 }},
-        {3, new Förbrukning {Vatten=232.767, El=1, Städdag=0 }},
+        {3, new Förbrukning {Vatten=232.764, El=1, Städdag=0 }},
         {5, new Förbrukning {Vatten=101.623, El=0, Städdag=0 }},
-        {7, new Förbrukning {Vatten=127.427, El=229, Städdag=1}},
+        {7, new Förbrukning {Vatten=127.427, El=229, Städdag=0}},
         {9, new Förbrukning {Vatten=197.35, El=7, Städdag=0}},
         {11, new Förbrukning {Vatten=107.06, El=2, Städdag=0}},
         {13, new Förbrukning {Vatten=107.084, El=1, Städdag=0}},
@@ -50,7 +50,7 @@
         Fondering_kvartal = 280,
         Moms_ut = 0.25,
         Vatten_rörlig_m3 = 16.12,
-        Vatten_fast_år = 832.68,
+        Vatten_fast_år = 832.6112,
         Vatten_moms = 0.25,
         Vatten_förbetalt_år = 3200,
         El_rörlig_kWh = 0.8576,
