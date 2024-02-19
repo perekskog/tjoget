@@ -2,15 +2,15 @@
 {
   class Förbrukning
   {
-    public float Vatten;
-    public float El;
-    public float Städdag;
+    public double Vatten;
+    public double El;
+    public double Städdag;
   }
 
   class Avgift{
-    public float Vatten;
-    public float El;
-    public float Städdag;
+    public double Vatten;
+    public double El;
+    public double Städdag;
   }
 
   class Program
@@ -19,26 +19,26 @@
     {
       var förbrukning_24q2 = new Dictionary<int, Förbrukning>()
       {
-        {1, new Förbrukning {Vatten=53.269F, El=0, Städdag=0 }},
-        {3, new Förbrukning {Vatten=232.767F, El=1, Städdag=0 }},
-        {5, new Förbrukning {Vatten=101.623F, El=0, Städdag=0 }},
-        {7, new Förbrukning {Vatten=127.427F, El=229, Städdag=0}},
-        {9, new Förbrukning {Vatten=197.35F, El=7, Städdag=0}},
-        {11, new Förbrukning {Vatten=107.06F, El=2, Städdag=0}},
-        {13, new Förbrukning {Vatten=107.084F, El=1, Städdag=0}},
-        {15, new Förbrukning {Vatten=172.095F, El=3, Städdag=0}},
-        {17, new Förbrukning {Vatten=127.524F, El=1, Städdag=0}},
-        {19, new Förbrukning {Vatten=143.459F, El=2, Städdag=0}},
-        {21, new Förbrukning {Vatten=147.626F, El=3, Städdag=0}},
-        {23, new Förbrukning {Vatten=165.706F, El=6, Städdag=0}},
-        {25, new Förbrukning {Vatten=341.832F, El=936, Städdag=0}},
-        {27, new Förbrukning {Vatten=194.535F, El=3, Städdag=0}},
-        {29, new Förbrukning {Vatten=201.311F, El=447, Städdag=0}},
-        {31, new Förbrukning {Vatten=177.224F, El=0, Städdag=0}},
-        {33, new Förbrukning {Vatten=225.33F, El=4, Städdag=0}},
-        {35, new Förbrukning {Vatten=140.22F, El=0, Städdag=0}},
-        {37, new Förbrukning {Vatten=110.943F, El=2, Städdag=0}},
-        {39, new Förbrukning {Vatten=130.657F, El=0, Städdag=0}}
+        {1, new Förbrukning {Vatten=53.269, El=0, Städdag=0 }},
+        {3, new Förbrukning {Vatten=232.767, El=1, Städdag=0 }},
+        {5, new Förbrukning {Vatten=101.623, El=0, Städdag=0 }},
+        {7, new Förbrukning {Vatten=127.427, El=229, Städdag=0}},
+        {9, new Förbrukning {Vatten=197.35, El=7, Städdag=0}},
+        {11, new Förbrukning {Vatten=107.06, El=2, Städdag=0}},
+        {13, new Förbrukning {Vatten=107.084, El=1, Städdag=0}},
+        {15, new Förbrukning {Vatten=172.095, El=3, Städdag=0}},
+        {17, new Förbrukning {Vatten=127.524, El=1, Städdag=0}},
+        {19, new Förbrukning {Vatten=143.459, El=2, Städdag=0}},
+        {21, new Förbrukning {Vatten=147.626, El=3, Städdag=0}},
+        {23, new Förbrukning {Vatten=165.706, El=6, Städdag=0}},
+        {25, new Förbrukning {Vatten=341.832, El=936, Städdag=0}},
+        {27, new Förbrukning {Vatten=194.535, El=3, Städdag=0}},
+        {29, new Förbrukning {Vatten=201.311, El=447, Städdag=0}},
+        {31, new Förbrukning {Vatten=177.224, El=0, Städdag=0}},
+        {33, new Förbrukning {Vatten=225.33, El=4, Städdag=0}},
+        {35, new Förbrukning {Vatten=140.22, El=0, Städdag=0}},
+        {37, new Förbrukning {Vatten=110.943, El=2, Städdag=0}},
+        {39, new Förbrukning {Vatten=130.657, El=0, Städdag=0}}
       };
 
       var förbrukning = förbrukning_24q2;
@@ -48,16 +48,16 @@
       {
         Avgift_kvartal = 1640,
         Fondering_kvartal = 280,
-        Moms_ut = 0.25F,
-        Vatten_rörlig_m3 = 16.12F,
-        Vatten_fast_år = 832.68F,
-        Vatten_moms = 0.25F,
+        Moms_ut = 0.25,
+        Vatten_rörlig_m3 = 16.12,
+        Vatten_fast_år = 832.68,
+        Vatten_moms = 0.25,
         Vatten_förbetalt_år = 3200,
-        El_rörlig_kWh = 0.8576F,
+        El_rörlig_kWh = 0.8576,
         El_ingår = 10,
-        El_moms = 0.25F,
+        El_moms = 0.25,
         Städdag_hus = 160,
-        Städdag_moms = 0.25F
+        Städdag_moms = 0.25
       };
 
       var konstant = konstant_24q2;
@@ -149,10 +149,10 @@
       {
         var ver_avgift_kvartal = 0;
         var ver_fondering_kvartal = 0;
-        var ver_vatten = 0F;
-        var ver_el = 0F;
-        var ver_städdag = 0F;
-        var ver_moms = 0F;
+        var ver_vatten = 0.0;
+        var ver_el = 0.0;
+        var ver_städdag = 0.0;
+        var ver_moms = 0.0;
         Console.WriteLine();
         Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+");
         foreach (var h in huslista)
