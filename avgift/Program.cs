@@ -1,4 +1,4 @@
-namespace Avgift
+﻿namespace Avgift
 {
   class Förbrukning
   {
@@ -48,6 +48,7 @@ namespace Avgift
       {
         Avgift_kvartal = 1640,
         Fondering_kvartal = 280,
+        Moms_ut = 0.25F,
         Vatten_rörlig_m3 = 16.12F,
         Vatten_fast_år = 832.68F,
         Vatten_moms = 0.25F,
@@ -135,6 +136,47 @@ namespace Avgift
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
 
       var avgift_24q2 = avgift;
+
+      Console.WriteLine();
+
+      Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
+      Console.WriteLine("|                                         Bokföring                                           |");
+      Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
+      Console.WriteLine("|Ver.|Hus |Avgift     |Fondering  |X Vatten   |El         |Städdag    |Moms       |Postgiro   |");
+      Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------+-------------+");
+
+      foreach (var (v, huslista) in inbetalning)
+      {
+        var ver_avgift_kvartal = 0;
+        var ver_fondering_kvartal = 0;
+        var ver_vatten = 0F;
+        var ver_el = 0F;
+        var ver_städdag = 0F;
+        var ver_moms = 0F;
+        Console.WriteLine();
+        Console.WriteLine("+----+----+-----------+-----------+-----------+-----------+-----------+-----------|");
+        foreach (var h in huslista)
+        {
+          var avgift_kvartal = konstant.Avgift_kvartal;
+          ver_avgift_kvartal += avgift_kvartal;
+          var fondering_kvartal = konstant.Fondering_kvartal;
+          ver_fondering_kvartal += fondering_kvartal;
+          var vatten = avgift[h].Vatten;
+          ver_vatten += vatten;
+          var el = avgift[h].El;
+          ver_el += el;
+          var städdag = avgift[h].Städdag;
+          ver_städdag += städdag;
+          var moms = avgift_kvartal * konstant.Moms_ut + fondering_kvartal * konstant.Moms_ut + vatten * konstant.Vatten_moms + el * konstant.El_moms + städdag * konstant.Städdag_moms;
+          ver_moms += moms;
+
+          Console.WriteLine(string.Format("|{0,4}|{1,4}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|{7,11:0.00}|", v, h, avgift_kvartal, fondering_kvartal, vatten, el, städdag, moms));
+        }
+        var ver_summa = ver_avgift_kvartal + ver_fondering_kvartal + ver_vatten + ver_el + ver_städdag + ver_moms;
+        Console.WriteLine("+=========+===========+===========+===========+===========+===========+===========+=============+");
+        Console.WriteLine(string.Format(" Summa     {0,11:0.00} {1,11:0.00} {2,11:0.00} {3,11:0.00} {4,11:0.00} {5,11:0.00} = {6,11:0.00}", ver_avgift_kvartal, ver_fondering_kvartal, ver_vatten, ver_el, ver_städdag, ver_moms, ver_summa));
+
+      }
     }
   }
 }
