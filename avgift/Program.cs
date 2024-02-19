@@ -84,11 +84,11 @@
 
       var inbetalning = inbetalning_24q2;
 
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|                                   Vattenkostnad                            |");
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|Hus |Förbrukning|Rörlig     |Fast       |Total      |Förbetalt  |X Vatten   |");
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       foreach(var (h,f) in förbrukning)
       {
         var vatten_rörlig = f.Vatten * konstant.Vatten_rörlig_m3;
@@ -98,7 +98,7 @@
         Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", h, f.Vatten, vatten_rörlig, vatten_fast, vatten_total, -konstant.Vatten_förbetalt_år, vatten_extra));
         avgift[h].Vatten = vatten_extra;
       }
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
 
       Console.WriteLine();
 
@@ -135,7 +135,7 @@
       Console.WriteLine();
 
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
-      Console.WriteLine("|                             Att betala                         |");
+      Console.WriteLine("|                             Att betala                                     |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|Hus |Förbetalt  |X Vatten   |El         |Städdag    |Moms       |Att betala |");
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
