@@ -1,4 +1,4 @@
-﻿namespace Avgift
+namespace Avgift
 {
   class Förbrukning
   {
@@ -46,7 +46,8 @@
 
       var konstant_24q2 = new
       {
-        Avgift_kvartal = 1920,
+        Avgift_kvartal = 1640,
+        Fondering_kvartal = 280,
         Vatten_rörlig_m3 = 16.12F,
         Vatten_fast_år = 832.68F,
         Vatten_moms = 0.25F,
@@ -82,21 +83,21 @@
 
       var inbetalning = inbetalning_24q2;
 
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
-      Console.WriteLine("|                       Vattenkostnad                            |");
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
-      Console.WriteLine("|Hus |Förbrukning|Rörlig     |Fast       |Total      |X Vatten   |");
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("|                                   Vattenkostnad                            |");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
+      Console.WriteLine("|Hus |Förbrukning|Rörlig     |Fast       |Total      |Förbetalt  |X Vatten   |");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
       foreach(var (h,f) in förbrukning)
       {
         var vatten_rörlig = f.Vatten * konstant.Vatten_rörlig_m3;
         var vatten_fast = konstant.Vatten_fast_år;
         var vatten_total = vatten_rörlig + vatten_fast;
         var vatten_extra = vatten_total - konstant.Vatten_förbetalt_år;
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|", h, f.Vatten, vatten_rörlig, vatten_fast, vatten_total, vatten_extra));
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", h, f.Vatten, vatten_rörlig, vatten_fast, vatten_total, -konstant.Vatten_förbetalt_år, vatten_extra));
         avgift[h].Vatten = vatten_extra;
       }
-      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+");
+      Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------|-----------+");
 
       Console.WriteLine();
 
@@ -108,9 +109,9 @@
       foreach(var (h,f) in förbrukning)
       {
         var el_justerad = f.El - konstant.El_ingår;
+        if (el_justerad < 0) el_justerad = 0;
         var el_total = el_justerad * konstant.El_rörlig_kWh;
-        if(el_total < 0) el_total = 0;
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", h, f.El, konstant.El_ingår, el_justerad, el_total*(1+konstant.El_moms)));
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|", h, f.El, konstant.El_ingår, el_justerad, el_total));
         avgift[h].El = el_total;
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+");
@@ -128,8 +129,8 @@
         var el = a.El;
         var städdag = a.Städdag;
         var moms = vatten * konstant.Vatten_moms + el * konstant.El_moms + städdag * konstant.Städdag_moms;
-        var att_betala = vatten + el + städdag + moms + konstant.Avgift_kvartal * (1+konstant.Vatten_moms);
-        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", h, konstant.Avgift_kvartal * (1+konstant.Vatten_moms), vatten, el, städdag, moms, att_betala));
+        var att_betala = vatten + el + städdag + moms + (konstant.Avgift_kvartal + konstant.Fondering_kvartal) * (1+konstant.Vatten_moms);
+        Console.WriteLine(string.Format("|{0,4}|{1,11:0.00}|{2,11:0.00}|{3,11:0.00}|{4,11:0.00}|{5,11:0.00}|{6,11:0.00}|", h, (konstant.Avgift_kvartal + konstant.Fondering_kvartal) * (1+konstant.Vatten_moms), vatten, el, städdag, moms, att_betala));
       }
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
 
