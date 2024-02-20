@@ -4,17 +4,12 @@ namespace avgift.Test;
 
 public class KalkylTest
 {
-    [Fact]
-    public void CalculateVatten_ElAndStäddagShouldBeZero()
+    Konstant konstant;
+    Kalkyl kalkyl;
+
+    public KalkylTest()
     {
-        var kalkyl = new Avgift.Kalkyl();
-        var förbrukning = new Avgift.Förbrukning
-        {
-            Vatten = 1,
-            El = 2,
-            Städdag = 3
-        };
-        var konstant = new Konstant
+        konstant = new Konstant
         {
             Avgift_kvartal = 1640,
             Fondering_kvartal = 280,
@@ -29,7 +24,26 @@ public class KalkylTest
             Städdag_hus = 160,
             Städdag_moms = 0.25
         };
+
+        kalkyl = new Avgift.Kalkyl();
+    }
+
+
+    [Fact]
+    public void CalculateVatten_ElAndStäddagShouldBeZero()
+    {
+        // Arrange
+        var förbrukning = new Avgift.Förbrukning
+        {
+            Vatten = 1,
+            El = 2,
+            Städdag = 3
+        };
+
+        // Act
         var kostnad = kalkyl.Vatten(förbrukning, konstant, new Kostnad());
+
+        //Assert
         var expected = new Kostnad() { Vatten_rörlig = 16, Vatten_fast = 12, Vatten_brutto = 28, Vatten_netto = 23, El_justerad = 0, El_netto = 0, Städdag_netto = 0, Moms = 0, AttBetala = 0 };
         Assert.Equivalent(kostnad, expected);
     }
