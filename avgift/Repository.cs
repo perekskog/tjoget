@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Repository
+  public class Repository
   {
     public Dictionary<int, Förbrukning> Förbrukning(string key)
     {

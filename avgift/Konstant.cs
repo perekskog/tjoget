@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Konstant
+  public class Konstant
   {
     public double Avgift_kvartal;
     public double Fondering_kvartal;

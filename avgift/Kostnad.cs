@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Kostnad
+  public class Kostnad
   {
     public double Vatten_rörlig;
     public double Vatten_fast;

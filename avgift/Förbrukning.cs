@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Förbrukning
+  public class Förbrukning
   {
     public double Vatten;
     public double El;

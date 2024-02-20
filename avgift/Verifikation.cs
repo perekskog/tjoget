@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Verifikation
+  public class Verifikation
   {
     public double Avgift;
     public double Fondering;

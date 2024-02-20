@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Kalkyl
+  public class Kalkyl
   {
     public Kostnad Vatten(Förbrukning f, Konstant c, Kostnad k)
     {

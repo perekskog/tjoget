@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Printer
+  public class Printer
   {
     public void PrintVattenkostnad(int[] hus, Dictionary<int, Förbrukning> förbrukning, Dictionary<int, Kostnad> kostnad, Konstant konstant)
     {

@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  class Algorithm
+  public class Algorithm
   {
     public Kostnad Kostnad(Kalkyl kalkyl, int h, Dictionary<int, Förbrukning> förbrukning, Konstant konstant)
     {
