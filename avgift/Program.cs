@@ -98,6 +98,30 @@ namespace Avgift
     }
   }
 
+  class Algorithm
+  {
+    public Kostnad Kostnad(Kalkyl kalkyl, int h, Dictionary<int, Förbrukning> förbrukning, Konstant konstant)
+    {
+      var kostnad = kalkyl.Vatten(förbrukning[h], konstant, new Kostnad());
+      kostnad = kalkyl.El(förbrukning[h], konstant, kostnad);
+      kostnad = kalkyl.Städdag(förbrukning[h], konstant, kostnad);
+      kostnad = kalkyl.Moms(förbrukning[h], konstant, kostnad);
+      kostnad = kalkyl.Betala(förbrukning[h], konstant, kostnad);
+      return kostnad;
+    }
+
+    public Verifikation Verifikation(Kalkyl kalkyl, int[] hl, Konstant konstant, Dictionary<int, Kostnad> kostnad)
+    {
+      var verifikation = new Verifikation();
+      foreach (var h in hl)
+      {
+        verifikation = kalkyl.Verifikation(konstant, kostnad[h], verifikation);
+      }
+      verifikation.Postgiro = verifikation.Avgift + verifikation.Fondering + verifikation.Vatten + verifikation.El + verifikation.Städdag + verifikation.Moms;
+      return verifikation;
+    }
+  }
+
   class Repository
   {
     public Dictionary<int, Förbrukning> Förbrukning(string key)
@@ -183,7 +207,6 @@ namespace Avgift
 
   class Program
   {
-
     static void Main(string[] args)
     {
       var repository = new Repository();
@@ -193,31 +216,20 @@ namespace Avgift
       var inbetalning = repository.Inbetalning("24q2");
 
       var kalkyl = new Kalkyl();
+      var algoritm = new Algorithm();
 
       var kostnad = new Dictionary<int, Kostnad>();
       int[] hus = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39];
       foreach (var h in hus)
       {
-        kostnad[h] = kalkyl.Vatten(förbrukning[h], konstant, new Kostnad());
-        kostnad[h] = kalkyl.El(förbrukning[h], konstant, kostnad[h]);
-        kostnad[h] = kalkyl.Städdag(förbrukning[h], konstant, kostnad[h]);
-        kostnad[h] = kalkyl.Moms(förbrukning[h], konstant, kostnad[h]);
-        kostnad[h] = kalkyl.Betala(förbrukning[h], konstant, kostnad[h]);
+        kostnad[h] = algoritm.Kostnad(kalkyl, h, förbrukning, konstant);
       }
 
       var verifikation = new Dictionary<string, Verifikation>();
       foreach (var (v, hl) in inbetalning)
       {
-        verifikation[v] = new Verifikation();
-        foreach (var h in hl)
-        {
-          verifikation[v] = kalkyl.Verifikation(konstant, kostnad[h], verifikation[v]);
-        }
-        verifikation[v].Postgiro = verifikation[v].Avgift + verifikation[v].Fondering + verifikation[v].Vatten + verifikation[v].El + verifikation[v].Städdag + verifikation[v].Moms;
+        verifikation[v] = algoritm.Verifikation(kalkyl, hl, konstant, kostnad);
       }
-
-
-
 
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");
       Console.WriteLine("|                                   Vattenkostnad                            |");
