@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-
-namespace Avgift
+﻿namespace Avgift
 {
   class Program
   {
