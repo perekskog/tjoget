@@ -2,17 +2,17 @@ using Avgift;
 
 namespace avgift.Test;
 
-public class UnitTest1
+public class KalkylTest
 {
     [Fact]
-    public void CalculateVatten_AllOtherShouldBeZero()
+    public void CalculateVatten_ElAndStäddagShouldBeZero()
     {
         var kalkyl = new Avgift.Kalkyl();
         var förbrukning = new Avgift.Förbrukning
         {
             Vatten = 1,
-            El = 8,
-            Städdag = 0
+            El = 2,
+            Städdag = 3
         };
         var konstant = new Konstant
         {
