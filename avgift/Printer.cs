@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  public class Printer
+  public readonly struct Printer
   {
     public void PrintVattenkostnad(int[] hus, Dictionary<int, Förbrukning> förbrukning, Dictionary<int, Kostnad> kostnad, Konstant konstant)
     {

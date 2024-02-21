@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  public class Algorithm
+  public readonly struct Algorithm
   {
     public Kostnad Kostnad(Kalkyl kalkyl, int h, Dictionary<int, Förbrukning> förbrukning, Konstant konstant)
     {

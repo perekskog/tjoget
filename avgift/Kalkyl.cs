@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  public class Kalkyl
+  public readonly struct Kalkyl
   {
     public Kostnad Vatten(Förbrukning f, Konstant c, Kostnad k)
     {

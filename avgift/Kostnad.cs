@@ -1,15 +1,17 @@
 namespace Avgift
 {
-  public class Kostnad
+  public struct Kostnad
   {
-    public double Vatten_rörlig;
-    public double Vatten_fast;
-    public double Vatten_brutto;
-    public double Vatten_netto;
-    public double El_justerad;
-    public double El_netto;
-    public double Städdag_netto;
-    public double Moms;
-    public double AttBetala;
-  }
+    public double Vatten_rörlig { get; set; }
+    public double Vatten_fast { get; set; }
+    public double Vatten_brutto { get; set; }
+    public double Vatten_netto { get; set; }
+    public double El_justerad { get; set; }
+    public double El_netto { get; set; }
+    public double Städdag_netto { get; set; }
+    public double Moms { get; set; }
+    public double AttBetala { get; set; }
+
+    public override readonly string ToString() => $"({Vatten_rörlig}, {Vatten_fast}, {Vatten_brutto}, {Vatten_netto}, {El_justerad}, {El_netto}, {Städdag_netto}, {Moms}, {AttBetala})";
+    }
 }

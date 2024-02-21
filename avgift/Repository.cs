@@ -1,6 +1,6 @@
 namespace Avgift
 {
-  public class Repository
+  public readonly struct Repository
   {
     public Dictionary<int, Förbrukning> Förbrukning(string key)
     {
