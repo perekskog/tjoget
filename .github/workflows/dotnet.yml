@@ -24,5 +24,7 @@ jobs:
       run: dotnet restore
     - name: Build avgit
       run: dotnet build --no-restore avgift/avgift.csproj
+    - name: Build avgit.Test
+      run: dotnet build --no-restore avgift.Test/avgift.Test.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal avgift.Test
