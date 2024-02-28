@@ -25,4 +25,4 @@ jobs:
     - name: Build avgit
       run: dotnet build --no-restore avgift/avgift.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal avgift.Test
+      run: dotnet test --verbosity normal avgift.Test
