@@ -2,6 +2,26 @@ namespace Avgift
 {
   public readonly struct Printer
   {
+    public void PrintBeräkningsvärden(Konstant konstant)
+    {
+      Console.WriteLine("+------------------------------+");
+      Console.WriteLine("|         Beräkningsvärden     |");
+      Console.WriteLine("+------------------------------+");
+      Console.WriteLine($"|Avgift kvartal      {konstant.Avgift_kvartal,10}|");
+      Console.WriteLine($"|Fondering kvartal   {konstant.Fondering_kvartal,10}|");
+      Console.WriteLine($"|Moms utgående       {konstant.Moms_ut,10}|");
+      Console.WriteLine($"|Vatten rörlig m^3   {konstant.Vatten_rörlig_m3,10}|");
+      Console.WriteLine($"|Vatten fast år      {konstant.Vatten_fast_år,10}|");
+      Console.WriteLine($"|Vatten moms         {konstant.Vatten_moms,10}|");
+      Console.WriteLine($"|Vatten förbetalt år {konstant.Vatten_förbetalt_år,10}|");
+      Console.WriteLine($"|El rörlig kWh       {konstant.El_rörlig_kWh,10}|");
+      Console.WriteLine($"|El ingår            {konstant.El_ingår,10}|");
+      Console.WriteLine($"|El moms             {konstant.El_moms,10}|");
+      Console.WriteLine($"|Städdag hus         {konstant.Städdag_hus,10}|");
+      Console.WriteLine($"|Städdag moms        {konstant.Städdag_moms,10}|");
+      Console.WriteLine("+------------------------------+");
+    }
+
     public void PrintVattenkostnad(int[] hus, Dictionary<int, Förbrukning> förbrukning, Dictionary<int, Kostnad> kostnad, Konstant konstant)
     {
       Console.WriteLine("+----+-----------+-----------+-----------+-----------+-----------+-----------+");

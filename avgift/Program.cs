@@ -22,6 +22,8 @@ foreach (var (v, hl) in inbetalning)
 
 var printer = new Avgift.Printer();
 
+printer.PrintBeräkningsvärden(konstant);
+Console.WriteLine();
 printer.PrintVattenkostnad(hus, förbrukning, kostnad, konstant);
 Console.WriteLine();
 printer.PrintElkostnad(hus, förbrukning, kostnad, konstant);
