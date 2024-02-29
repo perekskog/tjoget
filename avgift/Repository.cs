@@ -6,7 +6,7 @@ namespace Avgift
     {
       switch (key)
       {
-        case "24q2":
+        case "23q2":
           return new Dictionary<int, Förbrukning>()
           {
             {1, new Förbrukning {Vatten=53.269, El=0, Städdag=0 }},
@@ -40,7 +40,7 @@ namespace Avgift
     {
       switch (key)
       {
-        case "24q2":
+        case "23q2":
           return new Konstant
           {
             Avgift_kvartal = 1640,
@@ -65,7 +65,7 @@ namespace Avgift
     {
       switch (key)
       {
-        case "24q2":
+        case "23q2":
           return new Dictionary<string, int[]>
           {
             { "A34", [31]},
