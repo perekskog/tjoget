@@ -54,7 +54,42 @@ namespace Avgift
             El_ingår = 10,
             El_moms = 0.25,
             Städdag_hus = 160,
-            Städdag_moms = 0.25
+            Städdag_moms = 0.25,
+            Print_moms = true
+          };
+        case "23q2-no-moms":
+          return new Konstant
+          {
+            Avgift_kvartal = 1640 * 1.25,
+            Fondering_kvartal = 280 * 1.25,
+            Moms_ut = 0.0,
+            Vatten_rörlig_m3 = 16.12 * 1.25,
+            Vatten_fast_år = 832.6112 * 1.25,
+            Vatten_moms = 0.0,
+            Vatten_förbetalt_år = 3200 * 1.25,
+            El_rörlig_kWh = 0.8576 * 1.25,
+            El_ingår = 10,
+            El_moms = 0.0,
+            Städdag_hus = 160 * 1.25,
+            Städdag_moms = 0.0,
+            Print_moms = false
+          };
+        case "24q2":
+          return new Konstant
+          {
+            Avgift_kvartal = 2050,
+            Fondering_kvartal = 350,
+            Moms_ut = 0.0,
+            Vatten_rörlig_m3 = 17.4 * 1.25,
+            Vatten_fast_år = ((3296.73 / 20) * 4 + (1236.26 / (92 * 20)) * 365) * 1.25,
+            Vatten_moms = 0.0,
+            Vatten_förbetalt_år = 3200,
+            El_rörlig_kWh = 0.8576,
+            El_ingår = 10,
+            El_moms = 0.0,
+            Städdag_hus = 200,
+            Städdag_moms = 0.0,
+            Print_moms = false
           };
         default:
           throw new Exception();
