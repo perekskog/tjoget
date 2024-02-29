@@ -12,7 +12,7 @@ namespace Avgift
             {1, new Förbrukning {Vatten=53.269, El=0, Städdag=0 }},
             {3, new Förbrukning {Vatten=232.764, El=1, Städdag=0 }},
             {5, new Förbrukning {Vatten=101.623, El=0, Städdag=0 }},
-            {7, new Förbrukning {Vatten=127.427, El=229, Städdag=1}},
+            {7, new Förbrukning {Vatten=127.427, El=229, Städdag=0}},
             {9, new Förbrukning {Vatten=197.35, El=7, Städdag=0}},
             {11, new Förbrukning {Vatten=107.06, El=2, Städdag=0}},
             {13, new Förbrukning {Vatten=107.084, El=1, Städdag=0}},
