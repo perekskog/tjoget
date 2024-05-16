@@ -14,7 +14,8 @@ namespace Avgift
     public double El_moms { get; init; }
     public double Städdag_hus { get; init; }
     public double Städdag_moms { get; init; }
+    public bool Print_moms { get; init; }
 
-    public override string ToString() => $"({Avgift_kvartal}, {Fondering_kvartal}, {Moms_ut}, {Vatten_rörlig_m3}, {Vatten_fast_år}, {Vatten_moms}, {Vatten_förbetalt_år}, {El_rörlig_kWh}, {El_ingår}, {El_moms}, {Städdag_hus}, {Städdag_moms})";
+    public override string ToString() => $"({Avgift_kvartal}, {Fondering_kvartal}, {Moms_ut}, {Vatten_rörlig_m3}, {Vatten_fast_år}, {Vatten_moms}, {Vatten_förbetalt_år}, {El_rörlig_kWh}, {El_ingår}, {El_moms}, {Städdag_hus}, {Städdag_moms}, {Print_moms})";
   };
 }
