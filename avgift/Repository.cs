@@ -31,7 +31,6 @@ namespace Avgift
             {39, new Förbrukning {Vatten=130.657, El=0, Städdag=0}}
           };
 
-        // TODO: Förbrukning vatten
         case "24q2":
           return new Dictionary<int, Förbrukning>()
           {
@@ -100,7 +99,6 @@ namespace Avgift
             Städdag_moms = 0.0,
             Print_moms = false
           };
-        // TODO: Vatten rörlig, vatten fast, el rörlig
         case "24q2":
           return new Konstant
           {
