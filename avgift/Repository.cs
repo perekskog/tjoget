@@ -31,6 +31,32 @@ namespace Avgift
             {39, new Förbrukning {Vatten=130.657, El=0, Städdag=0}}
           };
 
+        // TODO: Förbrukning vatten
+        case "24q2":
+          return new Dictionary<int, Förbrukning>()
+          {
+            {1, new Förbrukning {Vatten=54.022, El=0, Städdag=1 }},
+            {3, new Förbrukning {Vatten=179.718, El=1, Städdag=0 }},
+            {5, new Förbrukning {Vatten=100.2, El=0, Städdag=1 }},
+            {7, new Förbrukning {Vatten=115.66, El=201, Städdag=1}},
+            {9, new Förbrukning {Vatten=182.342, El=6, Städdag=1}},
+            {11, new Förbrukning {Vatten=106.156, El=2, Städdag=0}},
+            {13, new Förbrukning {Vatten=104.733, El=3, Städdag=1}},
+            {15, new Förbrukning {Vatten=169.75, El=5, Städdag=1}},
+            {17, new Förbrukning {Vatten=100.167, El=53, Städdag=1}},
+            {19, new Förbrukning {Vatten=193.488, El=1, Städdag=0}},
+            {21, new Förbrukning {Vatten=134.166, El=2, Städdag=0}},
+            {23, new Förbrukning {Vatten=161.03, El=4, Städdag=1}},
+            {25, new Förbrukning {Vatten=399.582, El=980, Städdag=0}},
+            {27, new Förbrukning {Vatten=175.082, El=4, Städdag=1}},
+            {29, new Förbrukning {Vatten=142.132, El=926, Städdag=0}},
+            {31, new Förbrukning {Vatten=157.046, El=1, Städdag=0}},
+            {33, new Förbrukning {Vatten=226.269, El=3, Städdag=0}},
+            {35, new Förbrukning {Vatten=155.82, El=2, Städdag=1}},
+            {37, new Förbrukning {Vatten=97.105, El=3, Städdag=1}},
+            {39, new Förbrukning {Vatten=106.31, El=0, Städdag=1}}
+          };
+
         default:
           throw new Exception();
       }
@@ -74,20 +100,21 @@ namespace Avgift
             Städdag_moms = 0.0,
             Print_moms = false
           };
+        // TODO: Vatten rörlig, vatten fast, el rörlig
         case "24q2":
           return new Konstant
           {
-            Avgift_kvartal = 2050,
-            Fondering_kvartal = 350,
+            Avgift_kvartal = 2375,
+            Fondering_kvartal = 1250,
             Moms_ut = 0.0,
-            Vatten_rörlig_m3 = 17.4 * 1.25,
-            Vatten_fast_år = ((3296.73 / 20) * 4 + (1236.26 / (92 * 20)) * 365) * 1.25,
+            Vatten_rörlig_m3 = 20.01 * 1.25,
+            Vatten_fast_år = ((3418.16 / 20) * 4 + (1281.79 / (91 * 20)) * 365) * 1.25,
             Vatten_moms = 0.0,
-            Vatten_förbetalt_år = 3200,
+            Vatten_förbetalt_år = 4750,
             El_rörlig_kWh = 0.8576,
             El_ingår = 10,
             El_moms = 0.0,
-            Städdag_hus = 200,
+            Städdag_hus = 330,
             Städdag_moms = 0.0,
             Print_moms = false
           };
@@ -113,7 +140,10 @@ namespace Avgift
             { "A42", [17]}
           };
         default:
-          throw new Exception();
+          return new Dictionary<string, int[]>
+          {
+            { "A??", [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39]},
+          };
       }
     }
   }

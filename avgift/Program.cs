@@ -1,8 +1,8 @@
 ﻿var repository = new Avgift.Repository();
 
-var förbrukning = repository.Förbrukning("23q2");
-var konstant = repository.Konstant("23q2-no-moms");
-var inbetalning = repository.Inbetalning("23q2");
+var förbrukning = repository.Förbrukning("24q2");
+var konstant = repository.Konstant("24q2");
+var inbetalning = repository.Inbetalning("24q2");
 
 var kalkyl = new Avgift.Kalkyl();
 var algoritm = new Avgift.Algorithm();
