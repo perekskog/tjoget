@@ -81,6 +81,31 @@ namespace Avgift
             {39, new Förbrukning {Vatten=100.387, El=0, Städdag=0}}
           };
 
+        case "26q2":
+          return new Dictionary<int, Förbrukning>()
+          {
+            {1, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
+            {3, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
+            {5, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
+            {7, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {9, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {11, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {13, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {15, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {17, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {19, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {21, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {23, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {25, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {27, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {29, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {31, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {33, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {35, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {37, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
+            {39, new Förbrukning {Vatten=0, El=-1, Städdag=-1}}
+          };
+
         default:
           throw new Exception();
       }
@@ -142,6 +167,23 @@ namespace Avgift
             Print_moms = false
           };
         case "25q2":
+          return new Konstant
+          {
+            Avgift_kvartal = 2375,
+            Fondering_kvartal = 1250,
+            Moms_ut = 0.0,
+            Vatten_rörlig_m3 = 20.01 * 1.25,
+            Vatten_fast_år = ((3780.90 / 20) * 4 + (1417.81 / (91 * 20)) * 365) * 1.25,
+            Vatten_moms = 0.0,
+            Vatten_förbetalt_år = 4750,
+            El_rörlig_kWh = 0.87,
+            El_ingår = 10,
+            El_moms = 0.0,
+            Städdag_hus = 1,
+            Städdag_moms = 0.0,
+            Print_moms = false
+          };
+        case "26q2":
           return new Konstant
           {
             Avgift_kvartal = 2375,
