@@ -186,14 +186,14 @@ namespace Avgift
         case "26q2":
           return new Konstant
           {
-            Avgift_kvartal = 2375,
-            Fondering_kvartal = 1250,
+            Avgift_kvartal = 0,
+            Fondering_kvartal = 0,
             Moms_ut = 0.0,
-            Vatten_rörlig_m3 = 20.01 * 1.25,
-            Vatten_fast_år = ((3780.90 / 20) * 4 + (1417.81 / (91 * 20)) * 365) * 1.25,
+            Vatten_rörlig_m3 = 0 * 1.25,
+            Vatten_fast_år = ((0 / 20) * 4 + (0 / (91 * 20)) * 365) * 1.25,
             Vatten_moms = 0.0,
-            Vatten_förbetalt_år = 4750,
-            El_rörlig_kWh = 0.87,
+            Vatten_förbetalt_år = 0,
+            El_rörlig_kWh = 0.0,
             El_ingår = 10,
             El_moms = 0.0,
             Städdag_hus = 1,
