@@ -1,8 +1,8 @@
 ﻿var repository = new Avgift.Repository();
 
-var förbrukning = repository.Förbrukning("24q2");
-var konstant = repository.Konstant("24q2");
-var inbetalning = repository.Inbetalning("24q2");
+var förbrukning = repository.Förbrukning("25q2");
+var konstant = repository.Konstant("25q2");
+var inbetalning = repository.Inbetalning("25q2");
 
 var kalkyl = new Avgift.Kalkyl();
 var algoritm = new Avgift.Algorithm();
@@ -31,5 +31,6 @@ Console.WriteLine();
 printer.PrintStäddag(hus, kostnad);
 Console.WriteLine();
 printer.PrintAttBetala(hus, kostnad, konstant);
-Console.WriteLine();
-printer.PrintBokföring(hus, kostnad, konstant, verifikation, inbetalning);
+// May not need this now that we don't book sales tax.
+// Console.WriteLine();
+// printer.PrintBokföring(hus, kostnad, konstant, verifikation, inbetalning);

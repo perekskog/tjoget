@@ -56,6 +56,31 @@ namespace Avgift
             {39, new Förbrukning {Vatten=106.31, El=0, Städdag=1}}
           };
 
+        case "25q2":
+          return new Dictionary<int, Förbrukning>()
+          {
+            {1, new Förbrukning {Vatten=54.286, El=0, Städdag=0 }},
+            {3, new Förbrukning {Vatten=288.493, El=2, Städdag=0 }},
+            {5, new Förbrukning {Vatten=113.414, El=0, Städdag=0 }},
+            {7, new Förbrukning {Vatten=140.286, El=236, Städdag=0}},
+            {9, new Förbrukning {Vatten=182.342, El=4, Städdag=0}},
+            {11, new Förbrukning {Vatten=186.107, El=0, Städdag=0}},
+            {13, new Förbrukning {Vatten=104.733, El=1, Städdag=0}},
+            {15, new Förbrukning {Vatten=139.278, El=0, Städdag=0}},
+            {17, new Förbrukning {Vatten=124.79, El=1, Städdag=0}},
+            {19, new Förbrukning {Vatten=123.806, El=1, Städdag=0}},
+            {21, new Förbrukning {Vatten=126.962, El=0, Städdag=0}},
+            {23, new Förbrukning {Vatten=102.404, El=4, Städdag=0}},
+            {25, new Förbrukning {Vatten=411.722, El=499, Städdag=0}},
+            {27, new Förbrukning {Vatten=205.486, El=2, Städdag=0}},
+            {29, new Förbrukning {Vatten=105.448, El=3, Städdag=0}},
+            {31, new Förbrukning {Vatten=161.614, El=0, Städdag=0}},
+            {33, new Förbrukning {Vatten=117.974, El=4, Städdag=0}},
+            {35, new Förbrukning {Vatten=176.875, El=3, Städdag=0}},
+            {37, new Förbrukning {Vatten=107.976, El=1, Städdag=0}},
+            {39, new Förbrukning {Vatten=100.387, El=0, Städdag=0}}
+          };
+
         default:
           throw new Exception();
       }
@@ -113,6 +138,23 @@ namespace Avgift
             El_ingår = 10,
             El_moms = 0.0,
             Städdag_hus = 330,
+            Städdag_moms = 0.0,
+            Print_moms = false
+          };
+        case "25q2":
+          return new Konstant
+          {
+            Avgift_kvartal = 2375,
+            Fondering_kvartal = 1250,
+            Moms_ut = 0.0,
+            Vatten_rörlig_m3 = 20.01 * 1.25,
+            Vatten_fast_år = ((3780.90 / 20) * 4 + (1417.81 / (91 * 20)) * 365) * 1.25,
+            Vatten_moms = 0.0,
+            Vatten_förbetalt_år = 4750,
+            El_rörlig_kWh = 0.87,
+            El_ingår = 10,
+            El_moms = 0.0,
+            Städdag_hus = 1,
             Städdag_moms = 0.0,
             Print_moms = false
           };
