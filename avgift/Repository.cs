@@ -84,26 +84,26 @@ namespace Avgift
         case "26q2":
           return new Dictionary<int, Förbrukning>()
           {
-            {1, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
-            {3, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
-            {5, new Förbrukning {Vatten=0, El=-1, Städdag=-1 }},
-            {7, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {9, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {11, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {13, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {15, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {17, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {19, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {21, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {23, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {25, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {27, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {29, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {31, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {33, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {35, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {37, new Förbrukning {Vatten=0, El=-1, Städdag=-1}},
-            {39, new Förbrukning {Vatten=0, El=-1, Städdag=-1}}
+            {1, new Förbrukning {Vatten=48.58, El=0, Städdag=300 }},
+            {3, new Förbrukning {Vatten=120.903, El=434, Städdag=300 }},
+            {5, new Förbrukning {Vatten=114.346, El=1, Städdag=300 }},
+            {7, new Förbrukning {Vatten=126.49, El=195, Städdag=300}},
+            {9, new Förbrukning {Vatten=199.84, El=5, Städdag=300}},
+            {11, new Förbrukning {Vatten=90.094, El=2, Städdag=0}},
+            {13, new Förbrukning {Vatten=132.728, El=0, Städdag=300}},
+            {15, new Förbrukning {Vatten=167.621, El=1, Städdag=300}},
+            {17, new Förbrukning {Vatten=132.929, El=0, Städdag=0}},
+            {19, new Förbrukning {Vatten=192.48, El=1, Städdag=0}},
+            {21, new Förbrukning {Vatten=117.702, El=100, Städdag=0}},
+            {23, new Förbrukning {Vatten=111.099, El=1, Städdag=0}},
+            {25, new Förbrukning {Vatten=410.127, El=10, Städdag=300}},
+            {27, new Förbrukning {Vatten=194.967, El=2, Städdag=300}},
+            {29, new Förbrukning {Vatten=99.322, El=1, Städdag=300}},
+            {31, new Förbrukning {Vatten=182.013, El=1, Städdag=0}},
+            {33, new Förbrukning {Vatten=154.58, El=744, Städdag=300}},
+            {35, new Förbrukning {Vatten=175.731, El=3, Städdag=365}},
+            {37, new Förbrukning {Vatten=116.444, El=1, Städdag=300}},
+            {39, new Förbrukning {Vatten=96.692, El=0, Städdag=0}}
           };
 
         default:
@@ -186,14 +186,14 @@ namespace Avgift
         case "26q2":
           return new Konstant
           {
-            Avgift_kvartal = 0,
-            Fondering_kvartal = 0,
+            Avgift_kvartal = 2400,
+            Fondering_kvartal = 1225,
             Moms_ut = 0.0,
             Vatten_rörlig_m3 = 0 * 1.25,
             Vatten_fast_år = ((0 / 20) * 4 + (0 / (91 * 20)) * 365) * 1.25,
             Vatten_moms = 0.0,
-            Vatten_förbetalt_år = 0,
-            El_rörlig_kWh = 0.0,
+            Vatten_förbetalt_år = 4750,
+            El_rörlig_kWh = 1.86,
             El_ingår = 10,
             El_moms = 0.0,
             Städdag_hus = 1,
